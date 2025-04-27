@@ -6,190 +6,557 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ALL-INDIA ADVENTURES TOUR AND TRAVELS</title>
     <link rel="icon" href="/Files/Routes/Logos/Logo Tab.png">
-    <link rel="stylesheet" type="text/css" href="/Styles/animations.css">
-    <link rel="stylesheet" type="text/css" href="/Styles/Routes/HomePage.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-blue: #0056b3;
+            --secondary-blue: #007bff;
+            --dark-blue: #003366;
+            --accent-orange: #ff6b35;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --dark-gray: #343a40;
+        }
+        
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            background-color: black;
-            color: #333;
+            background-color: var(--white);
+            color: var(--dark-gray);
+            line-height: 1.6;
         }
-
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: red;
-            color: white;
-            text-decoration: none;
-            font-size: 20px;
-            border-radius: 5px;
+        
+        .navbar {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+            padding: 15px 0;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand img {
+            height: 50px;
+            transition: transform 0.3s ease;
+        }
+        
+        .navbar-brand:hover img {
+            transform: scale(1.05);
+        }
+        
+        .nav-link {
+            color: var(--white) !important;
+            font-weight: 500;
+            padding: 8px 15px !important;
+            margin: 0 5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent-orange);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent-orange) !important;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .book-now-btn {
+            background-color: var(--accent-orange);
+            border-radius: 30px;
+            padding: 8px 20px !important;
+            color: white !important;
+            font-weight: 600;
+            transition: all 0.3s ease;
             animation: pulse 2s infinite;
         }
-
-        .container {
-            max-width: 1600px;
-            margin: 0 auto;
-            padding: 20px;
+        
+        .book-now-btn:hover {
+            background-color: #e05a2b;
+            transform: translateY(-2px);
+            color: white !important;
+            box-shadow: 0 6px 12px rgba(255, 107, 53, 0.3);
         }
-
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 12px rgba(255, 107, 53, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 107, 53, 0);
+            }
+        }
+        
+        .banner {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .banner video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .banner-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 80%;
+            max-width: 800px;
+            background-color: rgba(0, 51, 102, 0.8);
+            padding: 40px;
+            border-radius: 10px;
+            color: white;
+        }
+        
+        .banner-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeIn 1.5s ease-out;
+        }
+        
+        .banner-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            animation: fadeIn 2s ease-out;
+        }
+        
+        .highlight {
+            color: var(--accent-orange);
+            font-weight: 600;
+            animation: highlightPulse 2s infinite;
+        }
+        
+        @keyframes highlightPulse {
+            0% { opacity: 0.8; }
+            50% { opacity: 1; text-shadow: 0 0 10px rgba(255, 107, 53, 0.5); }
+            100% { opacity: 0.8; }
+        }
+        
+        .btn-primary {
+            background-color: var(--accent-orange);
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            animation: fadeIn 2.5s ease-out;
+        }
+        
+        .btn-primary:hover {
+            background-color: #e05a2b;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(255, 107, 53, 0.4);
+        }
+        
         .locations {
-            padding: 50px 0;
-            background-color: black;
+            padding: 80px 0;
+            background-color: var(--light-gray);
         }
-
-        .navbar-toggler {
-            background-color: #fff;
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--dark-blue);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--accent-orange);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .location-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .location-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .location-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .location-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .location-card:hover .location-image {
+            transform: scale(1.05);
+        }
+        
+        .location-text {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .location-text h3 {
+            font-size: 1.8rem;
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+        }
+        
+        .location-text p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+        
+        .price-tag {
+            color: var(--accent-orange);
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .newsletter {
+            padding: 80px 0;
+            background: linear-gradient(rgba(0, 51, 102, 0.9), rgba(0, 51, 102, 0.9)), url('/Files/Routes/Backgrounds/newsletter-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .newsletter .section-title {
+            color: white;
+        }
+        
+        .newsletter p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            font-size: 1rem;
+        }
+        
+        .newsletter-form button {
+            padding: 15px 30px;
+            background-color: var(--accent-orange);
+            color: white;
+            border: none;
+            border-radius: 0 30px 30px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: #e05a2b;
+        }
+        
+        .footer {
+            background-color: var(--dark-blue);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footlinks h4 {
+            color: var(--accent-orange);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footlinks h4:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-orange);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footlinks ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footlinks ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footlinks ul li a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footlinks ul li a:hover {
+            color: var(--accent-orange);
+            padding-left: 5px;
+        }
+        
+        .end {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .banner-title {
+                font-size: 2.5rem;
+            }
+            
+            .banner-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input,
+            .newsletter-form button {
+                border-radius: 30px;
+                width: 100%;
+            }
+            
+            .newsletter-form button {
+                margin-top: 10px;
+            }
         }
     </style>
 </head>
 
 <body>
-
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: black; padding: 20px; ">
-        <a href="/Routes/HomePage.html"><img src="/Files/Routes/Logos/Logo.png" class="logo" alt="Logo" title="FirstFlight Travels"></a>
-        <div class="order-lg-2 order-md-3">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="/Routes/HomePage.html">
+                <img src="/Files/Routes/Logos/Logo.png" class="logo" alt="FirstFlight Travels Logo">
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-        </div>
-        <div class="collapse navbar-collapse order-lg-3 order-md-2" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/Routes/HomePage.html" style="color: #fff;">HOME</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Routes/Destinations.html" style="color: #fff;">DESTINATIONS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Routes/BookingDetails.html" style="color: #fff;">BOOKING STATUS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://rzp.io/l/kHOq7bncia" style="color: #fff;">PAYMENTS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Routes/ContactUs.html" style="color: #fff;">CONTACT US</a>
-                </li>
-                <li class="nav-item">
-                    <button class="round-button" style="background-color: transparent; border: none; padding: 0;">
-                        <a class="nav-link" href="/Routes/Register.html" style="color: #fff; animation: glow 1.5s infinite;">BOOK NOW</a>
-                    </button>
-                </li>
-            </ul>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Routes/HomePage.html">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Routes/Destinations.html">DESTINATIONS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Routes/BookingDetails.html">BOOKING STATUS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://rzp.io/l/kHOq7bncia">PAYMENTS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Routes/ContactUs.html">CONTACT US</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link book-now-btn" href="/Routes/Register.html">BOOK NOW</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
-    <!-- Background Video & Header -->
-    <section>
-        <div class="banner">
-            <video src="/Files/Routes/BackGroundVideos/AIATAT.mp4" type="video/mp4" autoplay muted loop></video>
-            <div class="content" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; background-color: rgba(32, 32, 32, 0.5); padding: 20px; border-radius: 10px;">
-                <div class="title">
-                    <h1 style="text-align: center; animation: slideInFromLeft 1s ease-out; color: white;">All-India Adventures Tour and Travels</h1>
-                    <p style="font-size: 25px; color: white;">Unlock <span style="animation: highlight 1s infinite; font-size: 30px;">INDIA</span> wonders with our budget-friendly travel packages. Start planning your adventure today!</p>
-                    <a href="/Routes/Register.html" class="btn">Book Now!</a>
-                </div>
-            </div>
-
+    <!-- Hero Banner -->
+    <section class="banner">
+        <video src="/Files/Routes/BackGroundVideos/AIATAT.mp4" autoplay muted loop></video>
+        <div class="banner-content">
+            <h1 class="banner-title">All-India Adventures Tour and Travels</h1>
+            <p class="banner-subtitle">Unlock <span class="highlight">INDIA's</span> wonders with our budget-friendly travel packages. Start planning your adventure today!</p>
+            <a href="/Routes/Register.html" class="btn btn-primary">Book Now!</a>
         </div>
     </section>
-    <!-- Locations -->
+
+    <!-- Destinations Section -->
     <section class="locations" id="locations">
-        <div style="text-align: center;">
-            <span style="display: block; animation: glow 1.5s ease-in-out infinite alternate;; font-size: 45px; color: #fff;">DESTINATIONS</span>
-        </div>
         <div class="container">
+            <h2 class="section-title">DESTINATIONS</h2>
             <div class="location-content">
-                <div class="col-content">
-                    <a href="/Places/Goa/Routing/GoaHome.html"><img src="/Files/Routes/Locations/Goa.png" alt="Goa" class="location-image"></a>
-                    <div class="location-text">
-                        <h3>Goa</h3>
-                        <p>Package Starts From <span style="animation: highlight 1s infinite; font-size: 50px;">6,999</span>/-</p>
-                    </div>
+                <div class="location-card">
+                    <a href="/Places/Goa/Routing/GoaHome.html">
+                        <img src="/Files/Routes/Locations/Goa.png" alt="Goa" class="location-image">
+                        <div class="location-text">
+                            <h3>Goa</h3>
+                            <p>Package Starts From <span class="price-tag">₹6,999/-</span></p>
+                        </div>
+                    </a>
                 </div>
-                <div class="col-content">
-                    <a href="/Places/Munnar/Routing/MunnarHome.html"><img src="/Files/Routes/Locations/Munnar.png" alt="Munnar" class="location-image"></a>
-                    <div class="location-text">
-                        <h3>Munnar</h3>
-                        <p>Package Starts From <span style="animation: highlight 1s infinite; font-size: 50px;">6,999</span>/-</p>
-                    </div>
+                <div class="location-card">
+                    <a href="/Places/Munnar/Routing/MunnarHome.html">
+                        <img src="/Files/Routes/Locations/Munnar.png" alt="Munnar" class="location-image">
+                        <div class="location-text">
+                            <h3>Munnar</h3>
+                            <p>Package Starts From <span class="price-tag">₹6,999/-</span></p>
+                        </div>
+                    </a>
                 </div>
-                <div class="col-content">
-                    <a href="/Places/Jaipur/Routing/JaipurHome.html"><img src="/Files/Routes/Locations/Jaipur.png" alt="Jaipur" class="location-image"></a>
-                    <div class="location-text">
-                        <h3>Jaipur</h3>
-                        <p>Package Starts From <span style="animation: highlight 1s infinite; font-size: 50px;">6,999</span>/-</p>
-                    </div>
+                <div class="location-card">
+                    <a href="/Places/Jaipur/Routing/JaipurHome.html">
+                        <img src="/Files/Routes/Locations/Jaipur.png" alt="Jaipur" class="location-image">
+                        <div class="location-text">
+                            <h3>Jaipur</h3>
+                            <p>Package Starts From <span class="price-tag">₹6,999/-</span></p>
+                        </div>
+                    </a>
                 </div>
-                <div class="col-content">
-                    <a href="/Places/Manali/Routing/ManaliHome.html"><img src="/Files/Routes/Locations/Manali.png" alt="Manali" class="location-image"></a>
-                    <div class="location-text">
-                        <h3>Manali</h3>
-                        <p>Package Starts From <span style="animation: highlight 1s infinite; font-size: 50px;">6,999</span>/-</p>
-                    </div>
+                <div class="location-card">
+                    <a href="/Places/Manali/Routing/ManaliHome.html">
+                        <img src="/Files/Routes/Locations/Manali.png" alt="Manali" class="location-image">
+                        <div class="location-text">
+                            <h3>Manali</h3>
+                            <p>Package Starts From <span class="price-tag">₹6,999/-</span></p>
+                        </div>
+                    </a>
                 </div>
-                <div class="col-content">
-                    <a href="/Places/Hyderabad/Routing/HyderabadHome.html"><img src="/Files/Routes/Locations/Hyd.png" alt="Hyderabad" class="location-image"></a>
-                    <div class="location-text">
-                        <h3>Hyderabad</h3>
-                        <p>Package Starts From <span style="animation: highlight 1s infinite; font-size: 50px;">6,999</span>/-</p>
-                    </div>
+                <div class="location-card">
+                    <a href="/Places/Hyderabad/Routing/HyderabadHome.html">
+                        <img src="/Files/Routes/Locations/Hyd.png" alt="Hyderabad" class="location-image">
+                        <div class="location-text">
+                            <h3>Hyderabad</h3>
+                            <p>Package Starts From <span class="price-tag">₹6,999/-</span></p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Newsletter -->
+    <!-- Newsletter Section -->
     <section class="newsletter">
-        <div style="text-align: center;">
-            <span style="display: block; animation: glow 1.5s ease-in-out infinite alternate; font-size: 80px;">NEWS LETTER</span>
-        </div>
         <div class="container">
+            <h2 class="section-title">NEWSLETTER</h2>
             <p>Subscribe to get offers and latest updates every week!</p>
-            <form>
+            <form class="newsletter-form">
                 <input type="email" name="emailid" placeholder="Enter your email" required>
-                <button type="submit" class="btn btn-danger" style="padding: 5px 10px; font-size: 14px;">Subscribe</button>
-
+                <button type="submit" class="btn-subscribe">Subscribe</button>
             </form>
         </div>
     </section>
 
     <!-- Footer -->
-    <section class="footer">
-        <div class="foot">
-            <div class="footer-content">
-                <div class="footlinks">
-                    <h4 style="color: #097969;">Quick Links</h4>
-                    <ul>
-                        <li style="color: #800080;"><a href="/Routes/Register.html">Register</a></li>
-                        <li style="color: #000000;"><a href="/Routes/BookingDetails.html">Track Your Booking</a></li>
-                        <li style="color: #000000;"><a href="/Routes/Register.html">Book Now</a></li>
-                        <li><a href="/Routes/ContactUs.html">Contact Us</a></li>
-                    </ul>
-
-                </div>
-
-                <div class="footlinks">
-                    <h4 style="color: #097969;">Contact Us</h4>
-                    <p>If you have any questions or inquiries, feel free to contact us:</p>
-                    <ul>
-                        <li style="color: #fff">Email: <span style="color: teal;">AIATAT@gmail.com</span></li>
-                    </ul>
-                </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footlinks">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/Routes/Register.html">Register</a></li>
+                    <li><a href="/Routes/BookingDetails.html">Track Your Booking</a></li>
+                    <li><a href="/Routes/Register.html">Book Now</a></li>
+                    <li><a href="/Routes/ContactUs.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footlinks">
+                <h4>Contact Us</h4>
+                <p>If you have any questions or inquiries, feel free to contact us:</p>
+                <ul>
+                    <li>Email: <a href="mailto:AIATAT@gmail.com">AIATAT@gmail.com</a></li>
+                    <li>Phone: +91 98765 43210</li>
+                </ul>
             </div>
         </div>
-
         <div class="end">
-            <p>Copyright © 2024 ALL-INDIA ADVENTURES TOUR AND TRAVELS Travels All Rights Reserved.<br></p>
+            <p>Copyright © 2024 ALL-INDIA ADVENTURES TOUR AND TRAVELS. All Rights Reserved.</p>
         </div>
-    </section>
+    </footer>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+    <script>
+        // Smooth scrolling for anchor links
+        $(document).ready(function(){
+            $("a").on('click', function(event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800, function(){
+                        window.location.hash = hash;
+                    });
+                }
+            });
+        });
+        
+        // Add animation to cards when they come into view
+        $(window).scroll(function() {
+            $('.location-card').each(function() {
+                var cardPosition = $(this).offset().top;
+                var scrollPosition = $(window).scrollTop() + $(window).height();
+                
+                if (scrollPosition > cardPosition) {
+                    $(this).css('opacity', '1');
+                    $(this).addClass('animate__animated animate__fadeInUp');
+                }
+            });
+        });
+    </script>
 </body>
-
 </html>
