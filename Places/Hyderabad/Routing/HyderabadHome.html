@@ -4,84 +4,453 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HYDERABAD PACKAGE</title>
+    <title>HYDERABAD PACKAGE | ALL-INDIA ADVENTURES</title>
     <link rel="icon" href="/Files/Routes/Logos/Logo Tab.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" type="text/css" href="/Styles/Places/PlacesHome.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-blue: #1e3a8a;
+            --secondary-blue: #3b82f6;
+            --accent-orange: #f97316;
+            --light-color: #ffffff;
+            --dark-color: #1e293b;
+            --text-color: #334155;
+        }
+        
         body {
             margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: black;
-            color: #333;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            line-height: 1.6;
         }
-
-        #image-carousel .slides {
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .navbar {
+            padding: 15px 0;
+            background-color: var(--primary-blue) !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar-brand img {
+            height: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand img:hover {
+            transform: scale(1.05);
+        }
+        
+        .nav-link {
+            color: var(--light-color) !important;
+            font-weight: 500;
+            margin: 0 15px;
+            position: relative;
+            padding: 8px 0 !important;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-orange);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent-orange) !important;
+        }
+        
+        .round-button {
+            background-color: var(--accent-orange);
+            color: var(--light-color);
+            border-radius: 30px;
+            padding: 10px 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(249, 115, 22, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(249, 115, 22, 0);
+            }
+        }
+        
+        .round-button:hover {
+            background-color: #ea580c;
+            transform: translateY(-2px);
+            color: var(--light-color);
+        }
+        
+        .package {
+            padding: 60px 0;
+        }
+        
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .slides {
             width: 100%;
             height: auto;
+            display: none;
+            transition: opacity 1s ease;
         }
-
-        @keyframes glows {
-            from {
-                text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
+        
+        .slides.active {
+            display: block;
+        }
+        
+        .location-heading {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .location-heading h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--light-color);
+        }
+        
+        .location-heading h1 span {
+            color: var(--accent-orange);
+            font-size: 3.5rem;
+        }
+        
+        .stars {
+            color: var(--accent-orange);
+            font-size: 1.5rem;
+            margin: 15px 0;
+        }
+        
+        .location-heading p {
+            font-size: 1.2rem;
+            max-width: 900px;
+            margin: 0 auto 30px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .location-img {
+            display: inline-block;
+            width: 30%;
+            margin: 1%;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .location-img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .location-img img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .location-img:hover img {
+            transform: scale(1.05);
+        }
+        
+        .package-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: var(--accent-orange);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .package-title h2:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background-color: var(--accent-orange);
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .package-content {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding: 0 20px;
+        }
+        
+        .box {
+            background-color: var(--primary-blue);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            width: 350px;
+        }
+        
+        .box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .box:hover .image img {
+            transform: scale(1.05);
+        }
+        
+        .image h3 {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background-color: rgba(30, 58, 138, 0.8);
+            color: var(--light-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .dest-content {
+            padding: 20px;
+        }
+        
+        .dest-content h4 {
+            font-size: 1.8rem;
+            color: var(--accent-orange);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .pac-details {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .pac-details li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .pac-details li:last-child {
+            border-bottom: none;
+        }
+        
+        .footer {
+            background-color: var(--primary-blue);
+            padding: 60px 0 20px;
+            color: var(--light-color);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footlinks h4 {
+            color: var(--accent-orange);
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footlinks h4:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background-color: var(--light-color);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footlinks ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footlinks li {
+            margin-bottom: 10px;
+        }
+        
+        .footlinks a {
+            color: var(--light-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footlinks a:hover {
+            color: var(--accent-orange);
+            padding-left: 5px;
+        }
+        
+        .end {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        @media (max-width: 992px) {
+            .location-heading h1 {
+                font-size: 2.5rem;
             }
-
-            to {
-                text-shadow: 0 0 20px blue, 0 0 30px #00f, 0 0 40px #00f;
+            
+            .location-heading h1 span {
+                font-size: 3rem;
+            }
+            
+            .package-content {
+                gap: 20px;
             }
         }
-
-        .navbar-toggler {
-            background-color: #fff;
+        
+        @media (max-width: 768px) {
+            .location-heading h1 {
+                font-size: 2rem;
+            }
+            
+            .location-heading h1 span {
+                font-size: 2.5rem;
+            }
+            
+            .location-img {
+                width: 45%;
+            }
+            
+            .package-title h2 {
+                font-size: 2rem;
+            }
+            
+            .nav-link {
+                margin: 0 10px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .location-heading h1 {
+                font-size: 1.8rem;
+            }
+            
+            .location-heading h1 span {
+                font-size: 2rem;
+            }
+            
+            .location-img {
+                width: 90%;
+                margin: 10px auto;
+            }
+            
+            .package-content {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .box {
+                width: 100%;
+                max-width: 350px;
+            }
         }
     </style>
 </head>
 
 <body>
-
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: black; padding: 20px; ">
-        <a href="/Routes/HomePage.html"><img src="/Files/Routes/Logos/Logo.png" class="logo" alt="Logo" title="FirstFlight Travels"></a>
-        <div class="order-lg-2 order-md-3">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a href="/Routes/HomePage.html" class="navbar-brand">
+                <img src="/Files/Routes/Logos/Logo.png" alt="ALL-INDIA ADVENTURES Logo">
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-        </div>
-        <div class="collapse navbar-collapse order-lg-3 order-md-2" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/Routes/HomePage.html" style="color: #fff;">HOME</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Routes/Destinations.html" style="color: #fff;">DESTINATIONS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Routes/ContactUs.html" style="color: #fff;">CONTACT US</a>
-                </li>
-                <li class="nav-item">
-                    <button class="round-button" style="background-color: transparent; border: none; padding: 0;">
-                        <a class="nav-link" href="/Routes/Register.html" style="color: #fff; animation: glows 1.5s infinite;">BOOK NOW</a>
-                    </button>
-                </li>
-            </ul>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/Routes/HomePage.html">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Routes/Destinations.html">DESTINATIONS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Routes/ContactUs.html">CONTACT US</a>
+                    </li>
+                    <li class="nav-item ml-lg-3">
+                        <a href="/Routes/Register.html" class="round-button">BOOK NOW</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
+
+    <!-- Package Section -->
     <section class="package">
         <div id="image-carousel" class="slideshow-container">
-            <img class="slides img-fluid" src="" alt="Image 1">
-            <img class="slides img-fluid" src="" alt="Image 2">
-            <img class="slides img-fluid" src="" alt="Image 3">
-            <img class="slides img-fluid" src="" alt="Image 3">
-            <img class="slides img-fluid" src="" alt="Image 3">
-            <img class="slides img-fluid" src="" alt="Image 3">
-            <img class="slides img-fluid" src="" alt="Image 3">
-            <img class="slides img-fluid" src="" alt="Image 3">
+            <img class="slides img-fluid active" src="/Files/Places/Hyderabad/Hyd1.jpg" alt="Hyderabad Image 1">
+            <img class="slides img-fluid" src="/Files/Places/Hyderabad/Hyd2.jpg" alt="Hyderabad Image 2">
+            <img class="slides img-fluid" src="/Files/Places/Hyderabad/Hyd3.jpg" alt="Hyderabad Image 3">
+            <img class="slides img-fluid" src="/Files/Places/Hyderabad/Hyd4.jpg" alt="Hyderabad Image 4">
+            <img class="slides img-fluid" src="/Files/Places/Hyderabad/Hyd5.jpg" alt="Hyderabad Image 5">
+            <img class="slides img-fluid" src="/Files/Places/Hyderabad/Hyd6.jpg" alt="Hyderabad Image 6">
+            <img class="slides img-fluid" src="/Files/Places/Hyderabad/Hyd7.jpg" alt="Hyderabad Image 7">
+            <img class="slides img-fluid" src="/Files/Places/Hyderabad/Hyd8.jpg" alt="Hyderabad Image 8">
         </div>
+        
         <div class="location-heading">
-            <h1 style="color: #fff;">Discover The Beautiful<span style="animation: highlights 1s infinite;font-size: 80px;"> HYDERABAD</span> With <span style="color: #ff0000;"> ALL-INDIA ADVENTURES TOUR AND TRAVELS</span></h1>
-            <div class="location-detail" id="kashmir">
-                <h1 style="animation: glow 1.5s ease-in-out infinite alternate; color: #fff; font-size: 80px;">Goa</h1>
+            <h1>Discover The Beautiful <span>HYDERABAD</span> With <span style="color: var(--accent-orange);">ALL-INDIA ADVENTURES</span></h1>
+            <div class="location-detail">
+                <h1>Hyderabad</h1>
                 <div class="stars">
                     <i class='bx bxs-star'></i>
                     <i class='bx bxs-star'></i>
@@ -89,42 +458,44 @@
                     <i class='bx bxs-star'></i>
                     <i class='bx bxs-star'></i>
                 </div>
-            </div><br>
-            <p style="color: #fff; font-size: x-large;">Embark on a captivating journey through the historic city of Hyderabad, where every street echoes tales of its glorious past and vibrant present. Explore iconic landmarks like the majestic Charminar, standing as a symbol of the city's rich heritage, and the magnificent Golconda Fort, steeped in centuries of history. Indulge your senses in the aromatic flavors of Hyderabadi cuisine, savoring mouthwatering biryanis and delectable kebabs. Lose yourself in the bustling markets of Laad Bazaar, adorned with intricate bangles and vibrant textiles, offering a glimpse into the city's vibrant culture. With its blend of tradition and modernity, Hyderabad promises an enchanting experience for every traveler.</p>
+            </div>
+            <p>Embark on a captivating journey through the historic city of Hyderabad, where every street echoes tales of its glorious past and vibrant present. Explore iconic landmarks like the majestic Charminar, standing as a symbol of the city's rich heritage, and the magnificent Golconda Fort, steeped in centuries of history. Indulge your senses in the aromatic flavors of Hyderabadi cuisine, savoring mouthwatering biryanis and delectable kebabs. Lose yourself in the bustling markets of Laad Bazaar, adorned with intricate bangles and vibrant textiles, offering a glimpse into the city's vibrant culture. With its blend of tradition and modernity, Hyderabad promises an enchanting experience for every traveler.</p>
+            
             <div class="location-img">
-                <img src="/Files/Places/Hyderabad/Hyd2.jpg" alt="">
+                <img src="/Files/Places/Hyderabad/Hyd2.jpg" alt="Hyderabad Charminar">
             </div>
             <div class="location-img">
-                <img src="/Files/Places/Hyderabad/Hyd5.jpg" alt="">
+                <img src="/Files/Places/Hyderabad/Hyd5.jpg" alt="Hyderabad Golconda Fort">
             </div>
             <div class="location-img">
-                <img src="/Files/Places/Hyderabad/Hyd9.jpg" alt="">
+                <img src="/Files/Places/Hyderabad/Hyd9.jpg" alt="Hyderabad Biryani">
             </div>
         </div>
     </section>
+
+    <!-- Packages Section -->
     <section class="package" id="package">
         <div class="package-title">
-            <h2 style="color: #fff; font-size: 60px; text-align: center; animation: glow 1.5s ease-in-out infinite alternate;">Packages</h2>
-        </div><br>
+            <h2>Packages</h2>
+        </div>
 
         <div class="package-content">
-
             <div class="box">
                 <div class="image">
-                    <a href="/Places/Hyderabad/Routing/HyderabadSilverPackage.html"><img src="/Files/Routes/Packages/Silver-Package.png" alt=""></a>
-                    <h3 style="font-size: x-large; animation: highlight 1s infinite;">Rs.6,999/-</h3>
+                    <a href="/Places/Hyderabad/Routing/HyderabadSilverPackage.html"><img src="/Files/Routes/Packages/Silver-Package.png" alt="Silver Package"></a>
+                    <h3>Rs.6,999/-</h3>
                 </div>
 
                 <div class="dest-content">
                     <div class="location">
-                        <a href="/Places/Hyderabad/Routing/HyderabadSilverPackage.html" style="color: #fff;">
-                            <h4 style="color: #fc0050; font-size: xx-large; text-align: center;animation: highlight 1s infinite;">Silver</h4>
+                        <a href="/Places/Hyderabad/Routing/HyderabadSilverPackage.html">
+                            <h4>Silver</h4>
                         </a>
                         <ul class="pac-details">
-                            <li style="color: #fff; font-size: x-large;">5 Destinations</li>
-                            <li style="color: #fff; font-size:x-large;">Free photo Session</li>
-                            <li style="color: #fff; font-size: x-large;">Friendly Tour Guide</li>
-                            <li style="color: #fff; font-size: x-large;">24/7 Customer Help Center</li>
+                            <li>5 Destinations</li>
+                            <li>Free photo Session</li>
+                            <li>Friendly Tour Guide</li>
+                            <li>24/7 Customer Help Center</li>
                         </ul>
                     </div>
                 </div>
@@ -132,21 +503,21 @@
 
             <div class="box">
                 <div class="image">
-                    <a href="/Places/Hyderabad/Routing/HyderabadGoldPackage.html"><img src="/Files/Routes/Packages/Gold-Package.png" alt=""></a>
-                    <h3 style="font-size: x-large; animation: highlight 1s infinite;">Rs.9,999/-</h3>
+                    <a href="/Places/Hyderabad/Routing/HyderabadGoldPackage.html"><img src="/Files/Routes/Packages/Gold-Package.png" alt="Gold Package"></a>
+                    <h3>Rs.9,999/-</h3>
                 </div>
 
                 <div class="dest-content">
                     <div class="location">
-                        <a href="/Places/Hyderabad/Routing/HyderabadGoldPackage.html" style="color: #fff;">
-                            <h4 style="color: #fc0050;font-size: xx-large; text-align: center; animation: highlight 1s infinite;">Gold</h4>
+                        <a href="/Places/Hyderabad/Routing/HyderabadGoldPackage.html">
+                            <h4>Gold</h4>
                         </a>
                         <ul class="pac-details">
-                            <li style="color: #fff; font-size: x-large;">7 Destinations</li>
-                            <li style="color: #fff;font-size: x-large;">Breakfast</li>
-                            <li style="color: #fff;font-size: x-large;">Free photo Session</li>
-                            <li style="color: #fff;font-size: x-large;">Friendly Tour Guide</li>
-                            <li style="color: #fff;font-size: x-large;">24/7 Customer Help Center</li>
+                            <li>7 Destinations</li>
+                            <li>Breakfast</li>
+                            <li>Free photo Session</li>
+                            <li>Friendly Tour Guide</li>
+                            <li>24/7 Customer Help Center</li>
                         </ul>
                     </div>
                 </div>
@@ -154,63 +525,91 @@
 
             <div class="box">
                 <div class="image">
-                    <a href="/Places/Hyderabad/Routing/HyderabadPlatinumPackage.html"><img src="/Files/Routes/Packages/Platinum-Package.png" alt=""></a>
-                    <h3 style="font-size: x-large; animation: highlight 1s infinite;">Rs.14,999/-</h3>
+                    <a href="/Places/Hyderabad/Routing/HyderabadPlatinumPackage.html"><img src="/Files/Routes/Packages/Platinum-Package.png" alt="Platinum Package"></a>
+                    <h3>Rs.14,999/-</h3>
                 </div>
 
                 <div class="dest-content">
                     <div class="location">
-                        <a href="/Places/Hyderabad/Routing/HyderabadPlatinumPackage.html" style="color: #fff;">
-                            <h4 style="color: #fc0050;font-size: xx-large; text-align: center; animation: highlight 1s infinite;">Platinum</h4>
+                        <a href="/Places/Hyderabad/Routing/HyderabadPlatinumPackage.html">
+                            <h4>Platinum</h4>
                         </a>
                         <ul class="pac-details">
-                            <li style="color: #fff;font-size: x-large;">10 Destinations</li>
-                            <li style="color: #fff;font-size: x-large;">Breakfast</li>
-                            <li style="color: #fff;font-size: x-large;">Bornfire</li>
-                            <li style="color: #fff;font-size: x-large;">Free photo Session</li>
-                            <li style="color: #fff;font-size: x-large;">Friendly Tour Guide</li>
-                            <li style="color: #fff;font-size: x-large;">24/7 Customer Help Center</li>
+                            <li>10 Destinations</li>
+                            <li>Breakfast</li>
+                            <li>Bonfire</li>
+                            <li>Free photo Session</li>
+                            <li>Friendly Tour Guide</li>
+                            <li>24/7 Customer Help Center</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <script src="/Scripts/slides.js">
-    </script>
+
     <!-- Footer -->
     <section class="footer">
-        <div class="foot">
-            <div class="footer-content">
-                <div class="footlinks">
-                    <h4 style="color: #097969;">Quick Links</h4>
-                    <ul>
-                        <li style="color: #800080;"><a href="/Routes/Register.html">Register</a></li>
-                        <li style="color: #000000;"><a href="/Routes/BookingDetails.html">Track Your Booking</a></li>
-                        <li style="color: #000000;"><a href="/Routes/Register.html">Book Now</a></li>
-                        <li><a href="/contact">Contact Form</a></li>
-                    </ul>
+        <div class="footer-content">
+            <div class="footlinks">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/Routes/Register.html">Register</a></li>
+                    <li><a href="/Routes/BookingDetails.html">Track Your Booking</a></li>
+                    <li><a href="/Routes/Register.html">Book Now</a></li>
+                    <li><a href="/Routes/ContactUs.html">Contact Us</a></li>
+                </ul>
+            </div>
 
-                </div>
-
-                <div class="footlinks">
-                    <h4 style="color: #097969;">Contact Us</h4>
-                    <p>If you have any questions or inquiries, feel free to contact us:</p>
-                    <ul>
-                        <li style="color: #fff">Email: <span style="color: teal;">AIATAT@gmail.com</span></li>
-                    </ul>
-                </div>
+            <div class="footlinks">
+                <h4>Contact Us</h4>
+                <p>If you have any questions or inquiries, feel free to contact us:</p>
+                <ul>
+                    <li>Email: <a href="mailto:AIATAT@gmail.com">AIATAT@gmail.com</a></li>
+                    <li>Phone: <span style="color: var(--accent-orange);">+91 XXXXX XXXXX</span></li>
+                </ul>
             </div>
         </div>
 
         <div class="end">
-            <p>Copyright © 2024 Firstflight Travels All Rights Reserved.</p>
+            <p>Copyright © 2024 ALL-INDIA ADVENTURES TOUR AND TRAVELS. All Rights Reserved.</p>
         </div>
     </section>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Image slideshow
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slides');
+        
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+        
+        // Change slide every 3 seconds
+        setInterval(nextSlide, 3000);
+        
+        // Initialize first slide
+        showSlide(0);
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
+            } else {
+                navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
 </body>
 
 </html>

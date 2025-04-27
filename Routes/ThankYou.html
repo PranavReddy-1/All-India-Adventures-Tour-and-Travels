@@ -4,117 +4,344 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THANK YOU FOR YOUR BOOKING</title>
+    <title>THANK YOU FOR YOUR BOOKING | ALL-INDIA ADVENTURES</title>
     <link rel="icon" href="/Files/Routes/Logos/Logo Tab.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" type="text/css" href="/Styles/Routes/ThankYou.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        :root {
+            --primary-blue: #1e3a8a;
+            --secondary-blue: #3b82f6;
+            --accent-orange: #f97316;
+            --light-color: #ffffff;
+            --dark-color: #1e293b;
+            --text-color: #334155;
+            --success-green: #45a049;
+        }
+        
         body {
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: black;
-            color: #333;
+            padding: 0;
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            line-height: 1.6;
         }
-
-        @keyframes glows {
-            from {
-                text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
-            }
-
-            to {
-                text-shadow: 0 0 20px blue, 0 0 30px #00f, 0 0 40px #00f;
-            }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--light-color);
         }
-
-        .navbar-toggler {
-            background-color: #fff;
+        
+        .navbar {
+            padding: 15px 0;
+            background-color: var(--dark-color) !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .navbar-brand img {
+            height: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand img:hover {
+            transform: scale(1.05);
+        }
+        
+        .nav-link {
+            color: var(--light-color) !important;
+            font-weight: 500;
+            margin: 0 15px;
+            position: relative;
+            padding: 8px 0 !important;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-orange);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent-orange) !important;
+        }
+        
+        .thank-you-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 70vh;
+            padding: 40px 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .image-container {
+            margin-bottom: 30px;
+        }
+        
+        .image-container img {
+            max-width: 200px;
+            height: auto;
+        }
+        
+        .thank-you-container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .thank-you-container p {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            max-width: 600px;
+        }
+        
+        .highlight {
+            color: var(--accent-orange);
+            font-weight: 600;
+        }
+        
+        .success-highlight {
+            color: var(--success-green);
+            font-weight: 600;
+        }
+        
+        .btn-container {
+            margin-top: 30px;
+        }
+        
+        .btn-pay {
+            background-color: var(--accent-orange);
+            color: var(--light-color);
+            border: none;
+            border-radius: 4px;
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-pay:hover {
+            background-color: #ea580c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .footer {
+            background-color: var(--primary-blue);
+            color: var(--light-color);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footlinks h4 {
+            color: var(--accent-orange);
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footlinks h4:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background-color: var(--light-color);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footlinks ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footlinks li {
+            margin-bottom: 10px;
+        }
+        
+        .footlinks a {
+            color: var(--light-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footlinks a:hover {
+            color: var(--accent-orange);
+            padding-left: 5px;
+        }
+        
+        .end {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .book-now-btn {
+            background-color: var(--accent-orange);
+            color: var(--light-color);
+            border-radius: 4px;
+            padding: 10px 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .book-now-btn:hover {
+            background-color: #ea580c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: var(--light-color);
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @media (max-width: 768px) {
+            .thank-you-container h1 {
+                font-size: 2rem;
+            }
+            
+            .thank-you-container p {
+                font-size: 1rem;
+            }
+            
+            .navbar-nav {
+                padding-top: 15px;
+            }
+            
+            .nav-link {
+                margin: 5px 0;
+            }
         }
     </style>
 </head>
 
 <body>
-
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: black; padding: 20px; ">
-        <a href="/Routes/HomePage.html"><img src="/Files/Routes/Logos/Logo.png" class="logo" alt="Logo" title="FirstFlight Travels"></a>
-        <div class="order-lg-2 order-md-3">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a href="/Routes/HomePage.html" class="navbar-brand">
+                <img src="/Files/Routes/Logos/Logo.png" alt="ALL-INDIA ADVENTURES Logo">
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-        </div>
-        <div class="collapse navbar-collapse order-lg-3 order-md-2" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/Routes/HomePage.html" style="color: #fff;">HOME</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Routes/Destinations.html" style="color: #fff;">DESTINATIONS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Routes/ContactUs.html" style="color: #fff;">CONTACT US</a>
-                </li>
-                <li class="nav-item">
-                    <button class="round-button" style="background-color: transparent; border: none; padding: 0;">
-                        <a class="nav-link" href="/Routes/Register.html" style="color: #fff; animation: glows 1.5s infinite;">BOOK NOW</a>
-                    </button>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <div class="container">
-        <div class="image-container">
-            <img src="/Files/Routes/Logos/Thank You.jpg" alt="Thank You Image" width="200">
-        </div>
-        <h1 style="color: #fff; font-size: 48px;">Thank You for <span style="color: #fc0050; animation: highlight 1s infinite;">BOOKING</span></h1>
-        <p style="color: #fff; font-size: 24px;">Your Booking has been successfully completed.</p>
-        <p style="color: #fff; font-size: 24px;">We appreciate your interest in our travel packages.</p>
-        <p style="color: #fff;font-size: 24px;">An <span style="color: #45a049; font-size: 30px; animation: highlights 1s infinite;">Confirmation</span> Email Is Send To Your Email ID</p>
-        <p style="color: #fff;font-size: 24px;">Pay The Amount of your  <span style="color: #fc0050; animation: highlight 1s infinite;">PACKAGE</span> By Clicking The BELOW Button</p>
-        <div class="btn-container">
-            <a href="#" class="btn" onclick="redirect()">PAY NOW</a>
-        </div>
-    </div>
-    <!-- Footer -->
-    <section class="footer">
-        <div class="foot">
-            <div class="footer-content">
-                <div class="footlinks">
-                    <h4 style="color: #097969;">Quick Links</h4>
-                    <ul>
-                        <li style="color: #800080;"><a href="/Routes/Register.html">Register</a></li>
-                        <li style="color: #000000;"><a href="/Routes/BookingDetails.html">Track Your Booking</a></li>
-                        <li style="color: #000000;"><a href="/Routes/Register.html">Book Now</a></li>
-                        <li><a href="/contact">Contact Form</a></li>
-                    </ul>
-
-                </div>
-
-                <div class="footlinks">
-                    <h4 style="color: #097969;">Contact Us</h4>
-                    <p>If you have any questions or inquiries, feel free to contact us:</p>
-                    <ul>
-                        <li style="color: #fff">Email: <span style="color: teal;">AIATAT@gmail.com</span></li>
-                    </ul>
-                </div>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Routes/HomePage.html">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Routes/Destinations.html">DESTINATIONS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Routes/ContactUs.html">CONTACT US</a>
+                    </li>
+                    <li class="nav-item ml-lg-3">
+                        <a href="/Routes/Register.html" class="book-now-btn">BOOK NOW</a>
+                    </li>
+                </ul>
             </div>
         </div>
+    </nav>
 
+    <!-- Thank You Content -->
+    <div class="thank-you-container">
+        <div class="image-container">
+            <img src="/Files/Routes/Logos/Thank You.jpg" alt="Thank You">
+        </div>
+        <h1>Thank You for <span class="highlight">Booking</span></h1>
+        <p>Your booking has been successfully completed.</p>
+        <p>We appreciate your interest in our travel packages.</p>
+        <p>A <span class="success-highlight">confirmation</span> email has been sent to your email address.</p>
+        <p>Please complete your payment by clicking the button below.</p>
+        
+        <div class="btn-container">
+            <a href="https://rzp.io/l/kHOq7bncia" class="btn-pay pulse">PAY NOW</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <section class="footer">
+        <div class="footer-content">
+            <div class="footlinks">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/Routes/Register.html">Register</a></li>
+                    <li><a href="/Routes/BookingDetails.html">Track Your Booking</a></li>
+                    <li><a href="/Routes/Register.html">Book Now</a></li>
+                    <li><a href="/contact">Contact Form</a></li>
+                </ul>
+            </div>
+
+            <div class="footlinks">
+                <h4>Contact Us</h4>
+                <p>If you have any questions or inquiries, feel free to contact us:</p>
+                <ul>
+                    <li>Email: <a href="mailto:AIATAT@gmail.com" style="color: var(--accent-orange);">AIATAT@gmail.com</a></li>
+                </ul>
+            </div>
+        </div>
+        
         <div class="end">
-            <p>Copyright © 2024 ALL-INDIA ADVENTURES TOUR AND TRAVELS Travels All Rights Reserved.<br></p>
+            <p>Copyright © 2024 ALL-INDIA ADVENTURES TOUR AND TRAVELS. All Rights Reserved.</p>
         </div>
     </section>
-    <script>
-        function redirect() {
-    
-            alert("Click on OK to Redirect you to the Payments Page...");
-    
-            window.location.href = "https://rzp.io/l/kHOq7bncia";
-        }
-    </script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.2)';
+            } else {
+                navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
+            }
+        });
+    </script>
 </body>
 
 </html>

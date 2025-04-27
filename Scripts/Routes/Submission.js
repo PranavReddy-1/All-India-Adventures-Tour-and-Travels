@@ -143,7 +143,7 @@ function submitDetails() {
 
 function sendConfirmationEmail(name, email, package, formData) {
 
-    emailjs.init("s5uCgxIB5BadFy6SE");
+    emailjs.init("eu5J19IJt8ty1V1fh");
 
     var emailParams = {
         from_name: "All-India Adventures Tour and Travels",
@@ -159,7 +159,7 @@ function sendConfirmationEmail(name, email, package, formData) {
         destination: formData.destination
     };
 
-    emailjs.send("service_8j54vr4", "template_gbdtaap", emailParams)
+    emailjs.send("service_c5toqd3", "template_puqmilq", emailParams)
         .then(function(response) {
             console.log("Confirmation email sent successfully!", response);
 

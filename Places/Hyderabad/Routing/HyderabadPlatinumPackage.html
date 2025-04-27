@@ -4,217 +4,554 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HYDERABAD PLATINUM PACKAGE</title>
+    <title>HYDERABAD PLATINUM PACKAGE | ALL-INDIA ADVENTURES</title>
     <link rel="icon" href="/Files/Routes/Logos/Logo Tab.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" type="text/css" href="/Styles/Places/PlacesPlatinumPackage.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-blue: #0056b3;
+            --secondary-blue: #007bff;
+            --dark-blue: #003366;
+            --orange: #ff6b35;
+            --light-orange: #ff8c42;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --dark-gray: #343a40;
+            --platinum: #e5e4e2;
+        }
+
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            background-color: black;
-            color: #333;
+            background-color: var(--white);
+            color: var(--dark-gray);
+            line-height: 1.6;
         }
 
-        .li {
-            color: #000;
+        .navbar {
+            background-color: var(--dark-blue) !important;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        @keyframes glows {
-            from {
-                text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
+        .navbar-brand img {
+            height: 50px;
+        }
+
+        .nav-link {
+            color: var(--white) !important;
+            font-weight: 500;
+            padding: 8px 15px !important;
+            margin: 0 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--orange) !important;
+        }
+
+        .book-now-btn {
+            background-color: var(--orange);
+            border-radius: 30px;
+            padding: 8px 20px !important;
+            color: white !important;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.7);
             }
-
-            to {
-                text-shadow: 0 0 20px blue, 0 0 30px #00f, 0 0 40px #00f;
+            70% {
+                box-shadow: 0 0 0 10px rgba(255, 107, 53, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 107, 53, 0);
             }
         }
 
-        .navbar-toggler {
-            background-color: #fff;
+        .slideshow-container {
+            position: relative;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .slides {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .package-header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(135deg, var(--platinum) 0%, var(--white) 100%);
+            margin-bottom: 40px;
+        }
+
+        .package-title {
+            font-size: 3.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 20px;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .package-title span {
+            color: var(--platinum);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .duration-price {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .duration-price div {
+            text-align: center;
+        }
+
+        .duration-price strong {
+            color: var(--orange);
+            font-size: 1.5rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .duration-price span {
+            color: var(--dark-blue);
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--dark-blue);
+            margin: 30px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: var(--platinum);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .package-card {
+            background: var(--white);
+            border-radius: 10px;
+            border: 2px solid var(--platinum);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .inclusions-list, .exclusions-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .inclusions-list li, .exclusions-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 1.1rem;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .inclusions-list li:before {
+            content: "✓";
+            color: var(--orange);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .exclusions-list li:before {
+            content: "✗";
+            color: #dc3545;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            gap: 15px;
+        }
+
+        .location-image {
+            width: 30%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .location-image:hover {
+            transform: scale(1.05);
+        }
+
+        .itinerary {
+            margin-top: 50px;
+        }
+
+        .day-section {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .day-title {
+            color: var(--dark-blue);
+            font-size: 2rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .day-title:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 15px;
+            height: 15px;
+            background-color: var(--orange);
+            border-radius: 50%;
+        }
+
+        .day-content {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            background-color: rgba(255, 214, 0, 0.2);
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        .submitbtn {
+            display: block;
+            width: 200px;
+            margin: 40px auto;
+            padding: 15px;
+            background-color: var(--orange);
+            color: white;
+            text-align: center;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .submitbtn:hover {
+            background-color: var(--light-orange);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.6);
+        }
+
+        .footer {
+            background-color: var(--dark-blue);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer h4 {
+            color: var(--orange);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer ul li a:hover {
+            color: var(--orange);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .package-title {
+                font-size: 2.5rem;
+            }
+            
+            .slides {
+                height: 300px;
+            }
+            
+            .duration-price {
+                gap: 20px;
+            }
+            
+            .duration-price span {
+                font-size: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .location-image {
+                width: 100%;
+            }
         }
     </style>
 </head>
 
 <body>
-
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: black; padding: 20px; ">
-        <a href="/Routes/HomePage.html"><img src="/Files/Routes/Logos/Logo.png" class="logo" alt="Logo" title="FirstFlight Travels"></a>
-        <div class="order-lg-2 order-md-3">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="/Routes/HomePage.html">
+                <img src="/Files/Routes/Logos/Logo.png" class="logo" alt="Logo" title="FirstFlight Travels">
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-        </div>
-        <div class="collapse navbar-collapse order-lg-3 order-md-2" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/Routes/HomePage.html" style="color: #fff;">HOME</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Routes/Destinations.html" style="color: #fff;">DESTINATIONS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Routes/ContactUs.html" style="color: #fff;">CONTACT US</a>
-                </li>
-                <li class="nav-item">
-                    <button class="round-button" style="background-color: transparent; border: none; padding: 0;">
-                        <a class="nav-link" href="/Routes/Register.html" style="color: #fff; animation: glows 1.5s infinite;">BOOK NOW</a>
-                    </button>
-                </li>
-            </ul>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Routes/HomePage.html">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Routes/Destinations.html">DESTINATIONS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Routes/ContactUs.html">CONTACT US</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link book-now-btn" href="/Routes/Register.html">BOOK NOW</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
-    <section class="location-section">
-        <div id="image-carousel" class="slideshow-container">
-            <img class="slides img-fluid" src="" alt="Image 1">
-            <img class="slides img-fluid" src="" alt="Image 2">
-            <img class="slides img-fluid" src="/" alt="Image 3">
-            <img class="slides img-fluid" src="/" alt="Image 3">
-            <img class="slides img-fluid" src="/" alt="Image 3">
-            <img class="slides img-fluid" src="/" alt="Image 3">
-            <img class="slides img-fluid" src="/" alt="Image 3">
-            <img class="slides img-fluid" src="/" alt="Image 3">
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-16">
-                    <div class="location-heading">
-                        <h1 style="font-size: 110px; color: #fff; text-align: center;animation: colorCycle 5s infinite; ">PLATINUM PACKAGE<strong><span style="color: #fc0050; font-size: 60Px; animation: colorCycle 5s infinite;"></span></strong></h1>
-                    </div>
-                </div><br><br>
-                <div class="col-md-16">
-                    <div class="location-detail" id="kashmir">
-                        <p style="font-size: 80px; color: #fff;"><strong style="color: red; font-size: 60px; animation: highlightss 1s infinite;">Duration:</strong>
-                            <span class="bounce" style="color: #E5E4E2; font-size: 80Px; animation: blink 1.85s infinite;">7 Days/6 Nights</span>
-                        </p>
-                        <p style="font-size: 50px; color: #fff;"><strong style="color: red; font-size: 60px; animation: highlightss 1s infinite;">Cost:</strong>
-                            Starting from <span style="color: #E5E4E2; font-size: 80Px; animation: blink 1.85s infinite;">14,999/-</span> per person</p><br>
-                        <div class="location-heading">
-                            <strong>
-                                <h1 style="color: red; font-size: 60px; animation: bounce 1s infinite;">Inclusions:</h1>
-                            </strong>
-                        </div><br>
-                    </div>
-                    <div class="card" style="background-color: #fff; border: 20px solid red">
-                        <ul>
-                            <li style="font-size: 30px;">Accommodation in a standard hotel/resort (3-star category)</li>
-                            <li style="font-size: 30px;">Daily breakfast</li>
-                            <li style="font-size: 30px;">Sightseeing tours with a vehicle</li>
-                            <li style="font-size: 30px;">Transfers from airport/railway station to hotel and vice versa</li>
-                            <li style="font-size: 30px;">Sunset cruise on Mandovi River (private cruise)</li>
-                            <li style="font-size: 30px;">Welcome drink on arrival</li>
-                            <li style="font-size: 30px;">Complimentary fruit basket in the room</li>
-                            <li style="font-size: 30px;">Daily spa treatments or wellness activities</li>
-                            <li style="font-size: 30px;">Exclusive beachside dinner with live music</li>
-                            <li style="font-size: 30px;">Personalized souvenir gift</li>
-                            <li style="font-size: 30px;">All applicable taxes</li>
-                            <li style="font-size: 30px;">24/7 customer support</li>
-                        </ul>
-                        <div class="image-container">
-                            <img class="location-image img-fluid" src="/Files/Routes/Inclusions&Exclusions/BreakFast.jpg" alt="">
-                            <img class="location-image img-fluid" src="Files/goavhcl.jpeg" alt="">
-                            <img class="location-image img-fluid" src="/Files/Routes/Inclusions&Exclusions/24 Support.png" alt="">
-                        </div>
-                    </div><br>
 
-                    <div class="location-heading">
-                        ><strong>
-                            <h1 style="color: #fff; font-size: 60px; animation: bounce 1s infinite;">Exclusions:</h1>
-                        </strong>
-                    </div><br>
-                    <div class="card" style="background-color: #fff; border: 20px solid red">
-                        <ul>
-                            <li style="font-size: 30px; ">Airfare/train/bus tickets</li>
-                            <li style="font-size: 30px;">Lunch and dinner (except breakfast)</li>
-                            <li style="font-size: 30px;">Entry fees to monuments and attractions</li>
-                            <li style="font-size: 30px;">Personal expenses and tips</li>
-                        </ul>
-                        <div class="image-container">
-                            <img class="location-image img-fluid" src="/Files/Routes/Inclusions&Exclusions/EntryFee.png" alt="">
-                            <img class="location-image img-fluid" src="" alt="">
-                            <img class="location-image img-fluid" src="/Files/Routes/Inclusions&Exclusions/Expenses.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
-                <br><br>
-                <div class="col-md-16">
-                    <div class="location-heading">
-                        <br><br>
-                        <h1 style="color: #fff; font-size: 80px; animation: glow 1.5s ease-in-out infinite alternate; text-align: center;">Details Of The <span>GOLD</span> Package<strong><span style="color: #fc0050; font-size: 38px;"></span></h1></strong>
-                    </div><br><br>
-                    <div class="card" style="background-color: #fff; border: 20px solid red;">
-                        <h2></h2>
-                        <ul>
-                            <h1 style="animation: rubberBand 1s infinite; color: red; font-size: 60px;">Day 1: Arrival in Hyderabad</h1>
-
-                            <p style="font-size: 25px;">🌟 Welcome to Hyderabad, the city of pearls and palaces! Upon your arrival at Rajiv Gandhi International Airport, our dedicated tour representative will warmly greet you. You'll be transferred to your hotel for check-in, allowing you to unwind and relax after your journey. Take some time to soak in the charm of Hyderabad's rich heritage. In the evening, feel free to explore the local markets or enjoy a leisurely stroll around your accommodation.</p>
-                            <br>
-                            <h1 style="animation: rubberBand 1s infinite; color: red; font-size: 60px;">Day 2: Hyderabad City Tour - Charminar, Chowmahalla Palace, Salar Jung Museum</h1>
-                            <br>
-                            <p style="font-size: 25px;">🕌 Start your day with a delicious breakfast at the hotel before embarking on a journey to explore the iconic landmarks of Hyderabad. Our first stop is Charminar, the symbol of the city's Islamic heritage. Explore its intricate architecture and vibrant surroundings. Next, we'll visit Chowmahalla Palace, a majestic complex showcasing the opulence of the Nizams. Afterward, delve into the vast collection of art and artifacts at Salar Jung Museum.</p>
-                            <br>
-                            <h1 style="animation: rubberBand 1s infinite; color: red; font-size: 60px;">Day 3: Historical Exploration - Golconda Fort, Qutb Shahi Tombs, Birla Mandir</h1>
-                            <br>
-                            <p style="font-size: 25px;">⛰️ After breakfast, we'll head to Golconda Fort, a magnificent fortress with a rich history. Explore its impressive architecture and enjoy panoramic views of the city. Next, we'll visit the Qutb Shahi Tombs, marveling at the architectural grandeur of these royal mausoleums. Conclude the day with a visit to Birla Mandir, a serene Hindu temple offering spiritual solace.</p>
-                            <br>
-                            <h1 style="animation: rubberBand 1s infinite; color: red; font-size: 60px;">Day 4: Cultural & Entertainment - Ramoji Film City</h1>
-                            <br>
-                            <p style="font-size: 25px;">🎥 Today, after breakfast, we'll embark on a full-day excursion to Ramoji Film City, the world's largest film studio complex. Explore its various sets, enjoy entertainment shows, and immerse yourself in the magic of cinema. Lunch will be served within the premises. Return to Hyderabad in the evening for relaxation.</p>
-                            <br>
-                            <h1 style="animation: rubberBand 1s infinite; color: red; font-size: 60px;">Day 5: Nature & Wildlife - Nehru Zoological Park, Hussain Sagar Lake</h1>
-                            <br>
-                            <p style="font-size: 25px;">🦁 After breakfast, we'll visit Nehru Zoological Park, home to diverse wildlife species. Explore the park's lush surroundings and fascinating exhibits. Next, we'll head to Hussain Sagar Lake for a serene boat ride amidst picturesque surroundings. Enjoy the tranquil ambiance before returning to the hotel.</p>
-                            <br>
-                            <h1 style="animation: rubberBand 1s infinite; color: red; font-size: 60px;">Day 6: Shopping & Leisure - Laad Bazaar, Leisure Time</h1>
-                            <br>
-                            <p style="font-size: 25px;">🛍️ Today, after breakfast, we'll explore Laad Bazaar, famous for its traditional bangles and jewelry. Spend the day shopping for souvenirs and soaking in the vibrant atmosphere of the market. The afternoon is free for leisure activities or optional tours. You can explore local attractions or simply relax at the hotel.</p>
-                            <br>
-                            <h1 style="animation: rubberBand 1s infinite; color: red; font-size: 60px;">Day 7: Departure from Hyderabad</h1>
-                            <br>
-                            <p style="font-size: 25px;">🚗 After breakfast, our tour representative will assist you with your departure arrangements. Bid farewell to Hyderabad, carrying with you cherished memories of your enriching journey through the city's historical and cultural wonders.</p>
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section><br><br>
-    <a href="/Routes/Register.html" class="submitbtn" style="text-align: center; animation: pulse 1.5s infinite; color: white; background-color: red;">Book Now</a>
-    <script src="/Scripts/slides.js"></script>
-    <!-- Footer -->
-    <section class="footer">
-        <div class="foot">
-            <div class="footer-content">
-                <div class="footlinks">
-                    <h4 style="color: #097969;">Quick Links</h4>
-                    <ul>
-                        <li style="color: #800080;"><a href="/Routes/Register.html">Register</a></li>
-                        <li style="color: #000000;"><a href="/Routes/BookingDetails.html">Track Your Booking</a></li>
-                        <li style="color: #000000;"><a href="/Routes/Register.html">Book Now</a></li>
-                        <li><a href="/contact">Contact Form</a></li>
-                    </ul>
-
-                </div>
-
-                <div class="footlinks">
-                    <h4 style="color: #097969;">Contact Us</h4>
-                    <p>If you have any questions or inquiries, feel free to contact us:</p>
-                    <ul>
-                        <li style="color: #fff">Email: <span style="color: teal;">AIATAT@gmail.com</span></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="end">
-            <p>Copyright © 2024 ALL-INDIA ADVENTURES TOUR AND TRAVELS Travels All Rights Reserved.<br></p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="slideshow-container">
+            <img class="slides img-fluid" src="/Files/Places/Hyderabad/Hyd1.JPG" alt="Hyderabad Charminar">
+            <img class="slides img-fluid" src="/Files/Places/Hyderabad/Hyd2.jpg" alt="Hyderabad Golconda Fort">
+            <img class="slides img-fluid" src="/Files/Places/Hyderabad/Hyd3.jpeg" alt="Hyderabad Birla Mandir">
+            <img class="slides img-fluid" src="/Files/Places/Hyderabad/Hyd4.jpg" alt="Hyderabad Qutb Shahi Tombs">
+            <img class="slides img-fluid" src="/Files/Places/Hyderabad/Hyd5.jpg" alt="Hyderabad Laad Bazaar">
+            <img class="slides img-fluid" src="/Files/Places/Hyderabad/Hyd6.jpg" alt="Hyderabad Chowmahalla Palace">
+            <img class="slides img-fluid" src="/Files/Places/Hyderabad/Hyd7.png" alt="Hyderabad Salar Jung Museum">
+            <img class="slides img-fluid" src="/Files/Places/Hyderabad/Hyd8.jpg" alt="Hyderabad Hussain Sagar">
         </div>
     </section>
-    <script src="/web.js"></script>
+
+    <!-- Package Header -->
+    <section class="package-header">
+        <div class="container">
+            <h1 class="package-title">HYDERABAD <span>PLATINUM PACKAGE</span></h1>
+            
+            <div class="duration-price">
+                <div>
+                    <strong>Duration:</strong>
+                    <span>7 Days/6 Nights</span>
+                </div>
+                <div>
+                    <strong>Cost:</strong>
+                    <span>Rs.14,999/-</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inclusions & Exclusions -->
+    <section class="container">
+        <h2 class="section-title">Premium Package Features</h2>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="package-card">
+                    <div class="card-body">
+                        <h3 style="color: var(--dark-blue); text-align: center; margin-bottom: 20px;">Inclusions</h3>
+                        <ul class="inclusions-list">
+                            <li>Luxury accommodation (4-star premium category)</li>
+                            <li>Daily breakfast buffet with international cuisine</li>
+                            <li>Private AC vehicle for all sightseeing tours</li>
+                            <li>Airport/hotel transfers with meet & greet service</li>
+                            <li>Welcome drink and fruit basket on arrival</li>
+                            <li>Daily spa treatments (60 minute sessions)</li>
+                            <li>Exclusive heritage walk with expert guide</li>
+                            <li>Gourmet dinner at premium restaurants (3 nights)</li>
+                            <li>Personalized souvenir gift package</li>
+                            <li>All entrance fees and activity charges included</li>
+                            <li>24/7 VIP concierge service</li>
+                        </ul>
+                        <div class="image-container">
+                            <img class="location-image img-fluid" src="/Files/Routes/Inclusions&Exclusions/BreakFast.jpg" alt="Premium Breakfast">
+                            <img class="location-image img-fluid" src="Files/goavhcl.jpeg" alt="Luxury Transport">
+                            <img class="location-image img-fluid" src="/Files/Routes/Inclusions&Exclusions/24 Support.png" alt="VIP Support">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="package-card">
+                    <div class="card-body">
+                        <h3 style="color: var(--dark-blue); text-align: center; margin-bottom: 20px;">Exclusions</h3>
+                        <ul class="exclusions-list">
+                            <li>International/domestic airfare</li>
+                            <li>Travel insurance and visa fees</li>
+                            <li>Premium alcoholic beverages</li>
+                            <li>Personal shopping expenses</li>
+                            <li>Gratuities for guides and drivers</li>
+                        </ul>
+                        <div class="image-container">
+                            <img class="location-image img-fluid" src="/Files/Routes/Inclusions&Exclusions/EntryFee.png" alt="Excluded Items">
+                            <img class="location-image img-fluid" src="/Files/Routes/Inclusions&Exclusions/Expenses.jpg" alt="Personal Expenses">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Itinerary -->
+    <section class="container itinerary">
+        <h2 class="section-title">Exclusive Itinerary</h2>
+        
+        <div class="package-card">
+            <div class="card-body">
+                <div class="day-section">
+                    <h3 class="day-title">Day 1: Arrival in Hyderabad - Royal Welcome</h3>
+                    <p class="day-content">
+                        ✈️ Upon arrival at Rajiv Gandhi International Airport, be greeted by your personal concierge with a traditional welcome. Enjoy a <span class="highlight">private transfer</span> to your luxury hotel where you'll be welcomed with rose petals and a refreshing drink. After settling into your premium room, spend the evening at leisure or enjoy our <span class="highlight">complimentary spa treatment</span> to unwind from your journey.
+                    </p>
+                </div>
+
+                <div class="day-section">
+                    <h3 class="day-title">Day 2: Heritage Hyderabad - Charminar & Chowmahalla Palace</h3>
+                    <p class="day-content">
+                        🕌 After a lavish breakfast, begin with a <span class="highlight">private guided tour</span> of the iconic Charminar, followed by exclusive access to the majestic Chowmahalla Palace. Enjoy a <span class="highlight">royal high tea experience</span> in the palace gardens. Later, explore the world-famous Salar Jung Museum with <span class="highlight">curator-led insights</span> into its priceless collections.
+                    </p>
+                </div>
+
+                <div class="day-section">
+                    <h3 class="day-title">Day 3: Golconda Fort & Qutb Shahi Tombs - VIP Experience</h3>
+                    <p class="day-content">
+                        ⛰️ Today features a <span class="highlight">sunrise tour</span> of Golconda Fort before it opens to the public, complete with a light breakfast at the summit. After exploring the fort's secrets, enjoy a <span class="highlight">private golf cart tour</span> of the Qutb Shahi Tombs complex. The evening includes a <span class="highlight">gourmet Hyderabadi dinner</span> at a heritage restaurant with live ghazal performances.
+                    </p>
+                </div>
+
+                <div class="day-section">
+                    <h3 class="day-title">Day 4: Ramoji Film City - Platinum Access</h3>
+                    <p class="day-content">
+                        🎬 Experience <span class="highlight">exclusive behind-the-scenes access</span> at Ramoji Film City, including visits to active film sets. Enjoy a <span class="highlight">private lunch</span> with a film personality (subject to availability). The package includes <span class="highlight">VIP passes</span> to all shows and attractions, with dedicated transport between locations.
+                    </p>
+                </div>
+
+                <div class="day-section">
+                    <h3 class="day-title">Day 5: Nature & Luxury - Private Boating & Spa Day</h3>
+                    <p class="day-content">
+                        🛥️ Begin with a <span class="highlight">private sunrise boating experience</span> on Hussain Sagar Lake, followed by breakfast at a lakeside venue. The afternoon features a <span class="highlight">3-hour luxury spa package</span> at your hotel. Evening is reserved for <span class="highlight">personal shopping assistance</span> at Laad Bazaar with our style consultant.
+                    </p>
+                </div>
+
+                <div class="day-section">
+                    <h3 class="day-title">Day 6: Customizable Experience</h3>
+                    <p class="day-content">
+                        🎯 Choose from premium experiences: <span class="highlight">Golf at Hyderabad Golf Club</span>, <span class="highlight">wine tasting at local vineyards</span>, or a <span class="highlight">private cooking class</span> with a master chef. The day concludes with a <span class="highlight">farewell gala dinner</span> at the city's finest restaurant, complete with personalized souvenirs.
+                    </p>
+                </div>
+
+                <div class="day-section">
+                    <h3 class="day-title">Day 7: Departure with Royal Send-off</h3>
+                    <p class="day-content">
+                        🚗 Enjoy a leisurely morning with late checkout. Your personal concierge will arrange airport transfer with a <span class="highlight">traditional farewell ceremony</span>, ensuring you depart with unforgettable memories of Hyderabad's royal hospitality.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <button onclick="window.location.href='/Routes/Register.html'" class="submitbtn">Reserve Your Platinum Experience</button>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/Routes/Register.html">Register</a></li>
+                        <li><a href="/Routes/BookingDetails.html">Track Your Booking</a></li>
+                        <li><a href="/Routes/Register.html">Book Now</a></li>
+                        <li><a href="/contact">Contact Form</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h4>VIP Contact</h4>
+                    <p>For Platinum package inquiries and personal assistance:</p>
+                    <ul>
+                        <li>Email: <a href="mailto:platinum@aiatat.com">platinum@aiatat.com</a></li>
+                        <li>Phone: +91 98765 43210 (24/7)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>Copyright © 2024 ALL-INDIA ADVENTURES TOUR AND TRAVELS Travels All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/Scripts/slides.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-
 </html>

@@ -5,160 +5,417 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CONTACT US</title>
+    <title>CONTACT US | ALL-INDIA ADVENTURES TOUR AND TRAVELS</title>
     <link rel="icon" href="/Files/Routes/Logos/Logo Tab.png">
-    <link rel="stylesheet" type="text/css" href="CSS/styl.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" type="text/css" href="/Styles/Routes/ContactUs.css">
-    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2a4365;
+            --secondary-color: #e53e3e;
+            --accent-color: #f6ad55;
+            --light-color: #f7fafc;
+            --dark-color: #1a202c;
+            --text-color: #4a5568;
+            --white: #ffffff;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--white);
+        }
+        
+        .navbar {
+            padding: 15px 0;
+            background-color: var(--dark-color) !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .navbar-brand img {
+            height: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand img:hover {
+            transform: scale(1.05);
+        }
+        
+        .nav-link {
+            color: var(--light-color) !important;
+            font-weight: 500;
+            margin: 0 15px;
+            position: relative;
+            padding: 8px 0 !important;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent-color) !important;
+        }
+        
+        .contact {
+            padding: 80px 0;
+            background-color: var(--dark-color);
+        }
+        
+        .contact-form {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        
+        .contact-form h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+        
+        .contact-form h1 span {
+            color: var(--white);
+        }
+        
+        .contact-form p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        form {
+            display: grid;
+            grid-gap: 20px;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: rgba(0, 0, 0, 0.3);
+            color: var(--white);
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 2px rgba(246, 173, 85, 0.3);
+        }
+        
+        input[type="submit"] {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border: none;
+            padding: 15px 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #c53030;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .ad-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .ad-content {
+            background-color: var(--dark-color);
+            padding: 40px;
+            border-radius: 8px;
+            max-width: 600px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .close-ad {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 30px;
+            color: var(--light-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .close-ad:hover {
+            color: var(--secondary-color);
+            transform: rotate(90deg);
+        }
+        
+        .ad-content img {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+        
+        .ad-content p {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--light-color);
+        }
+        
+        .ad-content span {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+        
+        .footer {
+            background-color: #111;
+            color: var(--light-color);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footlinks h4 {
+            color: var(--accent-color);
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footlinks h4:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footlinks ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footlinks li {
+            margin-bottom: 10px;
+        }
+        
+        .footlinks a {
+            color: var(--light-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footlinks a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+        
+        .end {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .book-now-btn {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border-radius: 50px;
+            padding: 10px 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .book-now-btn:hover {
+            background-color: #c53030;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: var(--white);
+        }
+        
+        @media (max-width: 768px) {
+            .contact-form h1 {
+                font-size: 2.2rem;
+            }
+            
+            .contact-form p {
+                font-size: 1rem;
+            }
+            
+            .navbar-nav {
+                padding-top: 15px;
+            }
+            
+            .nav-link {
+                margin: 5px 0;
+            }
+            
+            .ad-content {
+                padding: 20px;
+                width: 90%;
+            }
+            
+            .ad-content p {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
-<style>
-    body {
-        font-family: 'Poppins', sans-serif;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        background-color: black;
-        color: #fff;
-        font-size: large;
-    }
 
-    @keyframes glows {
-        from {
-            text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
-        }
-
-        to {
-            text-shadow: 0 0 20px blue, 0 0 30px #00f, 0 0 40px #00f;
-        }
-    }
-
-    .navbar-toggler {
-        background-color: #fff;
-    }
-
-    @media (max-width: 768px) {
-        .submitbtn {
-            font-size: 20px;
-
-            padding: 12px 24px;
-
-        }
-    }
-
-</style>
-
-<body class="register-body">
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: black; padding: 20px; ">
-        <a href="/Routes/HomePage.html"><img src="/Files/Routes/Logos/Logo.png" class="logo" alt="Logo" title="FirstFlight Travels"></a>
-        <div class="order-lg-2 order-md-3">
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a href="/Routes/HomePage.html" class="navbar-brand">
+                <img src="/Files/Routes/Logos/Logo.png" alt="ALL-INDIA ADVENTURES Logo">
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-        </div>
-        <div class="collapse navbar-collapse order-lg-3 order-md-2" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/Routes/HomePage.html" style="color: #fff;">HOME</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Routes/Destinations.html" style="color: #fff;">DESTINATIONS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Routes/ContactUs.html" style="color: #fff;">CONTACT US</a>
-                </li>
-                <li class="nav-item">
-                    <button class="round-button" style="background-color: transparent; border: none; padding: 0;">
-                        <a class="nav-link" href="/Routes/Register.html" style="color: #fff; animation: glows 1.5s infinite;">BOOK NOW</a>
-                    </button>
-                </li>
-            </ul>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Routes/HomePage.html">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Routes/Destinations.html">DESTINATIONS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Routes/ContactUs.html">CONTACT US</a>
+                    </li>
+                    <li class="nav-item ml-lg-3">
+                        <a href="/Routes/Register.html" class="book-now-btn">BOOK NOW</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
-    <br>
+    <!-- Contact Form Section -->
     <section class="contact">
         <div class="contact-form">
-            <h1 style="color: #fff; font-size: 70px;animation: glow 1.5s ease-in-out infinite alternate;">Contact <span>Us</span></h1>
-            <p style="color: #fff; font-size: xx-large;">We are always out there to help you! Fill out the form given below and get a reply from us within 2 business days.</p>
+            <h1>Contact <span>Us</span></h1>
+            <p>We are always here to help you! Fill out the form below and get a reply from us within 2 business days.</p>
             <form method="post" action="https://script.google.com/macros/s/AKfycbw93STozcM3UJBkH_M1QZRnnXXjtJnXmvtT6qirQpRrr_QTDkeWa1-aDy0nc4dvL9im/exec" name="contact-form">
                 <input type="text" name="Booking ID" placeholder="Booking ID" required maxlength="8">
                 <input type="email" name="Email Id" placeholder="Your E-mail" required>
                 <input type="text" name="Queries" placeholder="What brings you here?" required>
-                <textarea name="message" cols="30" rows="10" placeholder="Your Message" required style="background-color: #191919; color: #fff;"></textarea>
+                <textarea name="message" cols="30" rows="6" placeholder="Your Message" required></textarea>
                 <input type="submit" value="SUBMIT">
             </form>
         </div>
-        <div id="adContainer" class="ad-container" style="background-color: #333;">
-            <div class="ad-content">
-                <span class="close-ad">&times;</span>
-                <img src="/Files/Routes/Logos/Thank You.jpg" alt="" style="width: 200px; height: auto;"><br><br>
-                <p style="font-size: 30px; color: #fff;">Your Form is <span style="animation: highlightS 1s infinite;">Submitted</span> Successfully.</p><br>
-                <p style="font-size: 30px; color: #fff;">Our dedicated member, will be in touch with you shortly to address your queries</p><br>
-                <p style="font-size: 30px; color: #fff;">You Will be redirected to <span style="animation: highlight 1s infinite;">HomePage </span>.</p><br>
-
-            </div>
-        </div>
-
     </section>
 
-    <section class="footer">
-        <div class="foot">
-            <div class="footer-content">
+    <!-- Success Modal -->
+    <div id="adContainer" class="ad-container">
+        <div class="ad-content">
+            <span class="close-ad">&times;</span>
+            <img src="/Files/Routes/Logos/Thank You.jpg" alt="Thank You">
+            <p>Your form has been <span>submitted</span> successfully.</p>
+            <p>Our dedicated team member will be in touch with you shortly to address your queries.</p>
+            <p>You will be redirected to the <span>Homepage</span>.</p>
+        </div>
+    </div>
 
+    <!-- Footer -->
+    <section class="footer">
+        <div class="container">
+            <div class="footer-content">
                 <div class="footlinks">
-                    <h4 style="color: #097969;">Quick Links</h4>
+                    <h4>Quick Links</h4>
                     <ul>
-                        <li style="color: #800080;"><a href="/Routes/Register.html">Register</a></li>
-                        <li style="color: #000000;"><a href="/Routes/BookingDetails.html">Track Your Booking</a></li>
-                        <li style="color: #000000;"><a href="/Routes/Register.html">Book Now</a></li>
+                        <li><a href="/Routes/Register.html">Register</a></li>
+                        <li><a href="/Routes/BookingDetails.html">Track Your Booking</a></li>
+                        <li><a href="/Routes/Register.html">Book Now</a></li>
                         <li><a href="/contact">Contact Form</a></li>
                     </ul>
-
                 </div>
 
                 <div class="footlinks">
-                    <h4 style="color: #097969;">Contact Us</h4>
+                    <h4>Contact Us</h4>
                     <p>If you have any questions or inquiries, feel free to contact us:</p>
                     <ul>
-                        <li style="color: #fff">Email: <span style="color: teal;">AIATAT@gmail.com</span></li>
+                        <li>Email: <a href="mailto:AIATAT@gmail.com" style="color: var(--accent-color);">AIATAT@gmail.com</a></li>
                     </ul>
                 </div>
-
+            </div>
+            
+            <div class="end">
+                <p>Copyright © 2024 ALL-INDIA ADVENTURES TOUR AND TRAVELS. All Rights Reserved.</p>
             </div>
         </div>
-
-        <div class="end">
-            <p>Copyright © 2024 ALL-INDIA ADVENTURES TOUR AND TRAVELS Travels All Rights Reserved.<br></p>
-        </div>
     </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
+        // Success modal functionality
         const adContainer = document.getElementById('adContainer');
         const closeAdBtn = document.querySelector('.close-ad');
 
         closeAdBtn.addEventListener('click', () => {
             adContainer.style.display = 'none';
-            window.location.href = "HomePage.html"; 
+            window.location.href = "/Routes/HomePage.html"; 
         });
 
         function showAd() {
-            adContainer.style.display = 'block';
+            adContainer.style.display = 'flex';
             setTimeout(() => {
                 adContainer.style.display = 'none';
-                window.location.href = "HomePage.html"; 
+                window.location.href = "/Routes/HomePage.html"; 
             }, 10000); 
         }
 
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbw93STozcM3UJBkH_M1QZRnnXXjtJnXmvtT6qirQpRrr_QTDkeWa1-aDy0nc4dvL9im/exec'
+        // Form submission handler
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbw93STozcM3UJBkH_M1QZRnnXXjtJnXmvtT6qirQpRrr_QTDkeWa1-aDy0nc4dvL9im/exec';
+        const form = document.forms['contact-form'];
 
-        const form = document.forms['contact-form']
         form.addEventListener('submit', e => {
             e.preventDefault();
             fetch(scriptURL, {
@@ -168,14 +425,27 @@
                 .then(response => {
                     if (response.ok) {
                         showAd();
+                        form.reset();
                     } else {
                         alert("An error occurred. Please try again later.");
                     }
                 })
-                .catch(error => console.error('Error!', error.message));
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    alert("An error occurred. Please try again later.");
+                });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.2)';
+            } else {
+                navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
+            }
         });
     </script>
-    <script src="responsive.js"></script>
 </body>
 
 </html>

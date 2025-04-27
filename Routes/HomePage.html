@@ -6,190 +6,676 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ALL-INDIA ADVENTURES TOUR AND TRAVELS</title>
     <link rel="icon" href="/Files/Routes/Logos/Logo Tab.png">
-    <link rel="stylesheet" type="text/css" href="/Styles/animations.css">
-    <link rel="stylesheet" type="text/css" href="/Styles/Routes/HomePage.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-blue: #1e3a8a;
+            --secondary-blue: #3b82f6;
+            --accent-orange: #f97316;
+            --light-color: #ffffff;
+            --dark-color: #1e293b;
+            --text-color: #334155;
+            --section-padding: 80px 0;
+        }
+        
         body {
             margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: black;
-            color: #333;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
-
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: red;
-            color: white;
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-blue);
+        }
+        
+        .btn-primary {
+            background-color: var(--accent-orange);
+            border-color: var(--accent-orange);
+            padding: 12px 30px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #ea580c;
+            border-color: #ea580c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .navbar {
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: var(--light-color) !important;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .navbar-brand img {
+            height: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand img:hover {
+            transform: scale(1.05);
+        }
+        
+        .nav-link {
+            color: var(--primary-blue) !important;
+            font-weight: 500;
+            margin: 0 15px;
+            position: relative;
+            padding: 8px 0 !important;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-orange);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent-orange) !important;
+        }
+        
+        .round-button {
+            background-color: var(--accent-orange);
+            color: var(--light-color);
+            border-radius: 30px;
+            padding: 10px 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
             text-decoration: none;
-            font-size: 20px;
-            border-radius: 5px;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .round-button:hover {
+            background-color: #ea580c;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            color: var(--light-color);
+        }
+        
+        .banner {
+            position: relative;
+            height: 90vh;
+            min-height: 600px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(30, 58, 138, 0.8));
+        }
+        
+        .banner video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        
+        .banner .content {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 8px;
+            max-width: 800px;
+            text-align: center;
+            color: var(--primary-blue);
+            margin: 0 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .banner h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+        }
+        
+        .banner p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--text-color);
+        }
+        
+        .highlight {
+            color: var(--accent-orange);
+            font-weight: 700;
+        }
+        
+        .locations {
+            padding: var(--section-padding);
+            background-color: var(--light-color);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            color: var(--primary-blue);
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-orange);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .location-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .col-content {
+            background: var(--light-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .col-content:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .location-image-container {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .location-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .col-content:hover .location-image {
+            transform: scale(1.05);
+        }
+        
+        .location-text {
+            padding: 25px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .location-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+        }
+        
+        .location-text p {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            margin-bottom: 20px;
+        }
+        
+        .newsletter {
+            padding: var(--section-padding);
+            background: linear-gradient(135deg, var(--primary-blue), #1e3a8a);
+            color: var(--light-color);
+            text-align: center;
+        }
+        
+        .newsletter .section-title {
+            color: var(--light-color);
+        }
+        
+        .newsletter .section-title:after {
+            background-color: var(--accent-orange);
+        }
+        
+        .newsletter p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+        
+        .newsletter form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        .newsletter button {
+            padding: 15px 30px;
+            border: none;
+            background-color: var(--accent-orange);
+            color: var(--light-color);
+            font-weight: 600;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter button:hover {
+            background-color: #ea580c;
+        }
+        
+        .footer {
+            background-color: var(--primary-blue);
+            color: var(--light-color);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footlinks h4 {
+            color: var(--accent-orange);
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footlinks h4:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background-color: var(--light-color);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footlinks ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footlinks li {
+            margin-bottom: 10px;
+        }
+        
+        .footlinks a {
+            color: var(--light-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footlinks a:hover {
+            color: var(--accent-orange);
+            padding-left: 5px;
+        }
+        
+        .end {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* Animation for the book now button */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(249, 115, 22, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(249, 115, 22, 0);
+            }
+        }
+        
+        .pulse-animation {
             animation: pulse 2s infinite;
         }
-
-        .container {
-            max-width: 1600px;
-            margin: 0 auto;
-            padding: 20px;
+        
+        @media (max-width: 992px) {
+            .banner {
+                height: 80vh;
+                min-height: 500px;
+            }
+            
+            .banner h1 {
+                font-size: 2.5rem;
+            }
         }
-
-        .locations {
-            padding: 50px 0;
-            background-color: black;
+        
+        @media (max-width: 768px) {
+            :root {
+                --section-padding: 60px 0;
+            }
+            
+            .banner {
+                height: 70vh;
+                min-height: 400px;
+            }
+            
+            .banner h1 {
+                font-size: 2rem;
+            }
+            
+            .banner p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .newsletter form {
+                flex-direction: column;
+            }
+            
+            .newsletter input {
+                border-radius: 4px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter button {
+                border-radius: 4px;
+                width: 100%;
+            }
+            
+            .nav-link {
+                margin: 0 10px;
+            }
         }
-
-        .navbar-toggler {
-            background-color: #fff;
+        
+        @media (max-width: 576px) {
+            .banner {
+                height: 60vh;
+            }
+            
+            .banner .content {
+                padding: 25px;
+            }
+            
+            .location-content {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 
 <body>
-
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: black; padding: 20px; ">
-        <a href="/Routes/HomePage.html"><img src="/Files/Routes/Logos/Logo.png" class="logo" alt="Logo" title="FirstFlight Travels"></a>
-        <div class="order-lg-2 order-md-3">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a href="/Routes/HomePage.html" class="navbar-brand">
+                <img src="/Files/Routes/Logos/Logo.png" alt="ALL-INDIA ADVENTURES Logo">
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-        </div>
-        <div class="collapse navbar-collapse order-lg-3 order-md-2" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/Routes/HomePage.html" style="color: #fff;">HOME</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Routes/Destinations.html" style="color: #fff;">DESTINATIONS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Routes/BookingDetails.html" style="color: #fff;">BOOKING STATUS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://rzp.io/l/kHOq7bncia" style="color: #fff;">PAYMENTS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Routes/ContactUs.html" style="color: #fff;">CONTACT US</a>
-                </li>
-                <li class="nav-item">
-                    <button class="round-button" style="background-color: transparent; border: none; padding: 0;">
-                        <a class="nav-link" href="/Routes/Register.html" style="color: #fff; animation: glow 1.5s infinite;">BOOK NOW</a>
-                    </button>
-                </li>
-            </ul>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Routes/HomePage.html">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Routes/Destinations.html">DESTINATIONS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Routes/BookingDetails.html">BOOKING STATUS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://rzp.io/l/kHOq7bncia">PAYMENTS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Routes/ContactUs.html">CONTACT US</a>
+                    </li>
+                    <li class="nav-item ml-lg-3">
+                        <a href="/Routes/Register.html" class="round-button pulse-animation">BOOK NOW</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
-    <!-- Background Video & Header -->
-    <section>
-        <div class="banner">
-            <video src="/Files/Routes/BackGroundVideos/AIATAT.mp4" type="video/mp4" autoplay muted loop></video>
-            <div class="content" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; background-color: rgba(32, 32, 32, 0.5); padding: 20px; border-radius: 10px;">
-                <div class="title">
-                    <h1 style="text-align: center; animation: slideInFromLeft 1s ease-out; color: white;">All-India Adventures Tour and Travels</h1>
-                    <p style="font-size: 25px; color: white;">Unlock <span style="animation: highlight 1s infinite; font-size: 30px;">INDIA</span> wonders with our budget-friendly travel packages. Start planning your adventure today!</p>
-                    <a href="/Routes/Register.html" class="btn">Book Now!</a>
-                </div>
+    <!-- Hero Section -->
+    <section class="banner">
+        <video src="/Files/Routes/BackGroundVideos/AIATAT.mp4" type="video/mp4" autoplay muted loop></video>
+        <div class="content">
+            <div class="title">
+                <h1>All-India Adventures Tour and Travels</h1>
+                <p>Unlock <span class="highlight">INDIA's</span> wonders with our budget-friendly travel packages. Start planning your adventure today!</p>
+                <a href="/Routes/Register.html" class="btn btn-primary">Book Now</a>
             </div>
-
         </div>
     </section>
-    <!-- Locations -->
+
+    <!-- Destinations Section -->
     <section class="locations" id="locations">
-        <div style="text-align: center;">
-            <span style="display: block; animation: glow 1.5s ease-in-out infinite alternate;; font-size: 45px; color: #fff;">DESTINATIONS</span>
-        </div>
         <div class="container">
+            <h2 class="section-title">Explore Our Destinations</h2>
             <div class="location-content">
                 <div class="col-content">
-                    <a href="/Places/Goa/Routing/GoaHome.html"><img src="/Files/Routes/Locations/Goa.png" alt="Goa" class="location-image"></a>
+                    <div class="location-image-container">
+                        <a href="/Places/Goa/Routing/GoaHome.html">
+                            <img src="/Files/Routes/Locations/Goa.png" alt="Goa beaches" class="location-image">
+                        </a>
+                    </div>
                     <div class="location-text">
                         <h3>Goa</h3>
-                        <p>Package Starts From <span style="animation: highlight 1s infinite; font-size: 50px;">6,999</span>/-</p>
+                        <p>Package Starts From <span class="highlight">₹6,999/-</span></p>
+                        <a href="/Places/Goa/Routing/GoaHome.html" class="btn btn-primary" style="width: 100%;">Explore</a>
                     </div>
                 </div>
+                
                 <div class="col-content">
-                    <a href="/Places/Munnar/Routing/MunnarHome.html"><img src="/Files/Routes/Locations/Munnar.png" alt="Munnar" class="location-image"></a>
+                    <div class="location-image-container">
+                        <a href="/Places/Munnar/Routing/MunnarHome.html">
+                            <img src="/Files/Routes/Locations/Munnar.png" alt="Munnar tea gardens" class="location-image">
+                        </a>
+                    </div>
                     <div class="location-text">
                         <h3>Munnar</h3>
-                        <p>Package Starts From <span style="animation: highlight 1s infinite; font-size: 50px;">6,999</span>/-</p>
+                        <p>Package Starts From <span class="highlight">₹6,999/-</span></p>
+                        <a href="/Places/Munnar/Routing/MunnarHome.html" class="btn btn-primary" style="width: 100%;">Explore</a>
                     </div>
                 </div>
+                
                 <div class="col-content">
-                    <a href="/Places/Jaipur/Routing/JaipurHome.html"><img src="/Files/Routes/Locations/Jaipur.png" alt="Jaipur" class="location-image"></a>
+                    <div class="location-image-container">
+                        <a href="/Places/Jaipur/Routing/JaipurHome.html">
+                            <img src="/Files/Routes/Locations/Jaipur.png" alt="Jaipur palaces" class="location-image">
+                        </a>
+                    </div>
                     <div class="location-text">
                         <h3>Jaipur</h3>
-                        <p>Package Starts From <span style="animation: highlight 1s infinite; font-size: 50px;">6,999</span>/-</p>
+                        <p>Package Starts From <span class="highlight">₹6,999/-</span></p>
+                        <a href="/Places/Jaipur/Routing/JaipurHome.html" class="btn btn-primary" style="width: 100%;">Explore</a>
                     </div>
                 </div>
+                
                 <div class="col-content">
-                    <a href="/Places/Manali/Routing/ManaliHome.html"><img src="/Files/Routes/Locations/Manali.png" alt="Manali" class="location-image"></a>
+                    <div class="location-image-container">
+                        <a href="/Places/Manali/Routing/ManaliHome.html">
+                            <img src="/Files/Routes/Locations/Manali.png" alt="Manali mountains" class="location-image">
+                        </a>
+                    </div>
                     <div class="location-text">
                         <h3>Manali</h3>
-                        <p>Package Starts From <span style="animation: highlight 1s infinite; font-size: 50px;">6,999</span>/-</p>
+                        <p>Package Starts From <span class="highlight">₹6,999/-</span></p>
+                        <a href="/Places/Manali/Routing/ManaliHome.html" class="btn btn-primary" style="width: 100%;">Explore</a>
                     </div>
                 </div>
+                
                 <div class="col-content">
-                    <a href="/Places/Hyderabad/Routing/HyderabadHome.html"><img src="/Files/Routes/Locations/Hyd.png" alt="Hyderabad" class="location-image"></a>
+                    <div class="location-image-container">
+                        <a href="/Places/Hyderabad/Routing/HyderabadHome.html">
+                            <img src="/Files/Routes/Locations/Hyd.png" alt="Hyderabad city" class="location-image">
+                        </a>
+                    </div>
                     <div class="location-text">
                         <h3>Hyderabad</h3>
-                        <p>Package Starts From <span style="animation: highlight 1s infinite; font-size: 50px;">6,999</span>/-</p>
+                        <p>Package Starts From <span class="highlight">₹6,999/-</span></p>
+                        <a href="/Places/Hyderabad/Routing/HyderabadHome.html" class="btn btn-primary" style="width: 100%;">Explore</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Newsletter -->
+    <!-- Newsletter Section -->
     <section class="newsletter">
-        <div style="text-align: center;">
-            <span style="display: block; animation: glow 1.5s ease-in-out infinite alternate; font-size: 80px;">NEWS LETTER</span>
-        </div>
         <div class="container">
+            <h2 class="section-title">Stay Updated</h2>
             <p>Subscribe to get offers and latest updates every week!</p>
             <form>
                 <input type="email" name="emailid" placeholder="Enter your email" required>
-                <button type="submit" class="btn btn-danger" style="padding: 5px 10px; font-size: 14px;">Subscribe</button>
-
+                <button type="submit">Subscribe</button>
             </form>
         </div>
     </section>
 
     <!-- Footer -->
     <section class="footer">
-        <div class="foot">
+        <div class="container">
             <div class="footer-content">
                 <div class="footlinks">
-                    <h4 style="color: #097969;">Quick Links</h4>
+                    <h4>Quick Links</h4>
                     <ul>
-                        <li style="color: #800080;"><a href="/Routes/Register.html">Register</a></li>
-                        <li style="color: #000000;"><a href="/Routes/BookingDetails.html">Track Your Booking</a></li>
-                        <li style="color: #000000;"><a href="/Routes/Register.html">Book Now</a></li>
+                        <li><a href="/Routes/Register.html">Register</a></li>
+                        <li><a href="/Routes/BookingDetails.html">Track Your Booking</a></li>
+                        <li><a href="/Routes/Register.html">Book Now</a></li>
                         <li><a href="/Routes/ContactUs.html">Contact Us</a></li>
                     </ul>
-
                 </div>
 
                 <div class="footlinks">
-                    <h4 style="color: #097969;">Contact Us</h4>
+                    <h4>Contact Us</h4>
                     <p>If you have any questions or inquiries, feel free to contact us:</p>
                     <ul>
-                        <li style="color: #fff">Email: <span style="color: teal;">AIATAT@gmail.com</span></li>
+                        <li>Email: <a href="mailto:AIATAT@gmail.com">AIATAT@gmail.com</a></li>
+                        <li>Phone: <span style="color: var(--accent-orange);">+91 XXXXX XXXXX</span></li>
                     </ul>
                 </div>
             </div>
-        </div>
-
-        <div class="end">
-            <p>Copyright © 2024 ALL-INDIA ADVENTURES TOUR AND TRAVELS Travels All Rights Reserved.<br></p>
+            
+            <div class="end">
+                <p>Copyright © 2024 ALL-INDIA ADVENTURES TOUR AND TRAVELS. All Rights Reserved.</p>
+            </div>
         </div>
     </section>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
 
+        // Smooth scrolling for all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add animation to elements when they come into view
+        const animateOnScroll = function() {
+            const elements = document.querySelectorAll('.col-content');
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (elementPosition < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        // Initialize elements with hidden state
+        document.querySelectorAll('.col-content').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'all 0.6s ease-out';
+        });
+
+        // Run once on page load
+        animateOnScroll();
+
+        // Run on scroll
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
 </body>
 
 </html>
